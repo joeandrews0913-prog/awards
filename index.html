@@ -1,0 +1,1701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Legend Africa Excellence Awards</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* GLOBAL */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:white;
+color:#333;
+}
+
+/* HEADER */
+
+header{
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 8%;
+z-index:1000;
+transition:.4s;
+}
+
+header.scrolled{
+background:rgba(0, 0, 0, 0.822);
+}
+
+.logo{
+font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+font-weight: 700;
+font-size:25px;
+color:#FFD700;
+}
+
+/* LOGO CONTAINER */
+
+.logo-container{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+/* CIRCLE LOGO */
+
+.logo-img{
+width:45px;
+height:45px;
+border-radius:50%;
+overflow:hidden;
+flex-shrink:0;
+}
+
+/* IMAGE */
+
+.logo-img img{
+width:100%;
+height:100%;
+object-fit:cover;
+display:block;
+}
+
+nav a{
+margin-left:25px;
+text-decoration:none;
+color:white;
+font-weight:500;
+}
+
+nav a:hover{
+color:#FFD700;
+}
+
+/* HERO */
+/* HERO UPGRADE */
+.hamburger {
+    position: relative;
+    width: 28px;
+    height: 20px;
+    cursor: pointer;
+    z-index: 2000; /* Above overlay */
+}
+
+.hamburger span {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 1.5px; /* thinner lines */
+    background: #ffffff;
+    transition: all 0.4s cubic-bezier(.4,0,.2,1);
+}
+
+/* Line positioning */
+.hamburger span:nth-child(1) {
+    top: 0;
+}
+
+.hamburger span:nth-child(2) {
+    top: 9px;
+}
+
+.hamburger span:nth-child(3) {
+    bottom: 0;
+}
+
+/* Morph to elegant X */
+
+.hamburger.active span:nth-child(1) {
+    top: 9px;
+    transform: rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    bottom: 9px;
+    transform: rotate(-45deg);
+}
+
+/* =============================
+   FULLSCREEN MENU
+============================= */
+
+/* =============================
+   SLICK GLASS FULLSCREEN MENU
+============================= */
+
+/* ==============================
+   EDITORIAL SIDE MENU (OPTION C)
+============================== */
+
+.fullscreen-menu {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(
+        140deg,
+        rgba(8,12,25,0.96),
+        rgba(18,35,80,0.92)
+    );
+    backdrop-filter: blur(12px);
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+    z-index: 1500;
+}
+
+.fullscreen-menu.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* Layout */
+
+.menu-wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+/* LEFT SIDE LINKS */
+
+.menu-left {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+.menu-left a {
+    font-size: 42px;
+    font-weight: 300;
+    letter-spacing: 3px;
+    color: #e5e7eb;
+    text-decoration: none;
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: all 0.6s ease;
+}
+
+/* Reveal Animation */
+
+.fullscreen-menu.active .menu-left a {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Subtle hover */
+
+.menu-left a:hover {
+    color: #3b82f6;
+    letter-spacing: 6px;
+}
+
+/* RIGHT SIDE INFO */
+
+.menu-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    text-align: right;
+    opacity: 0;
+    transform: translateX(40px);
+    transition: all 0.8s ease;
+}
+
+.menu-right p {
+    font-size: 18px;
+    color: #9ca3af;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+.menu-right span {
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.fullscreen-menu.active .menu-right {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* MOBILE */
+
+@media (max-width: 900px) {
+    .menu-wrapper {
+        flex-direction: column;
+        justify-content: center;
+        gap: 60px;
+    }
+
+    .menu-right {
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .menu-left a {
+        font-size: 25px;
+    }
+}
+
+/* ================= MOBILE FULL WIDTH ================= */
+
+@media(max-width:900px){
+
+nav{
+position:absolute;
+top:70px;
+left:0;
+width:100%;
+background:rgba(0,31,63,0.98);
+flex-direction:column;
+align-items:center;
+padding:40px 0;
+display:none;
+}
+
+nav.active{
+display:flex;
+}
+
+nav a{
+margin:15px 0;
+font-size:18px;
+}
+
+.nav-buttons{
+display:none;
+}
+
+.hamburger{
+display:block;
+}
+
+}
+
+/* ================= HERO ================= */
+
+.hero{
+height:100vh;
+background:linear-gradient(rgba(184, 184, 184, 0.308),rgba(0,0,0,.6)),
+url('wp3273914.png') center/cover no-repeat;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:white;
+padding:0 20px;
+}
+
+.hero h1{
+font-size:45px;
+font-family:'Montserrat',sans-serif;
+letter-spacing:3px;
+}
+
+.hero p{
+max-width:800px;
+margin:20px auto;
+font-size:16.5px;
+opacity:.9;
+}
+
+.fade-scroll {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s ease;
+}
+.fade-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.btn{
+display:inline-block;
+padding:14px 25px;
+border-radius:40px;
+margin:10px;
+text-decoration:none;
+font-weight:600;
+transition:.4s;
+}
+
+.btn-primary{
+background:rgb(206, 44, 44);
+color:white;
+}
+
+.btn-primary:hover{
+background: rgb(117, 21, 21);
+box-shadow:0 0 20px var(--red);
+}
+
+.btn-outline{
+border:2px solid white;
+color:white;
+}
+
+.btn-outline:hover{
+background:white;
+color:black;
+}
+
+/* ================= SECTIONS ================= */
+
+.section{
+  padding:120px 60px;
+  opacity:1;
+  transform:none;
+  transition:.6s ease;
+}
+
+.container{
+max-width:1200px;
+margin:auto;
+}
+
+.section h2{
+font-size:32px;
+margin-bottom:30px;
+text-align: center;
+font-family:'Montserrat',sans-serif;
+color:var(--navy);
+}
+
+.section p{
+  text-align: center;
+}
+
+.dark{
+background:var(--navy);
+color:white;
+}
+
+.dark h2{color:white}
+
+.section-alt{
+  background: linear-gradient(180deg, rgba(214, 225, 241, 0.336), rgba(0, 16, 40, 0.219));
+}
+
+/* Fade In Animation */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* MOBILE */
+@media(max-width: 768px) {
+  .hero-upgrade h1 {
+    font-size: 40px;
+  }
+  .hero-stats {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .hero-buttons {
+    gap: 15px;
+  }
+}
+
+/* ABOUT */
+
+/* ===== FONTS ===== */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap');
+
+/* ===== ABOUT SECTION ===== */
+.about-section {
+  background-color: #ffffff;
+  padding: 100px 20px;
+  font-family: 'Poppins', sans-serif;
+  color: #1a1a1a;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 50px;
+}
+
+/* ===== TEXT BLOCK ===== */
+.about-text {
+  flex: 1;
+}
+
+.about-text h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  color: var(--navy);
+  margin-bottom: 20px;
+}
+
+.about-text p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+}
+
+.btn{
+display:inline-block;
+padding:14px 25px;
+border-radius:40px;
+margin:10px;
+text-decoration:none;
+font-weight:600;
+transition:.4s;
+}
+
+.btn-primaryy{
+background:rgb(206, 44, 44);
+color:white;
+}
+
+.btn-primaryy:hover{
+background: rgb(161, 34, 34);
+box-shadow:0 0 20px var(--red);
+}
+
+/* ===== IMAGE BLOCK ===== */
+.about-image {
+  flex: 1;
+}
+
+.about-image img {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+  transition: transform 0.5s ease;
+}
+
+.about-image img:hover {
+  transform: scale(1.05);
+}
+
+/* ===== FADE + SCROLL ANIMATION ===== */
+.fade-scroll {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s ease;
+}
+
+.fade-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .about-content {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .about-text h2 {
+    font-size: 36px;
+  }
+}
+
+/* WHY ATTEND SECTION */
+
+.why-attend{
+padding:110px 10%;
+background: #e7e7e7;;
+}
+
+
+.why-attend h2{
+text-align:center;
+margin-bottom:60px;
+font-size:37px;
+font-weight:600;
+line-height:1.2;
+font-family: 'Playfair Display', serif;
+color: var(--navy);
+}
+
+/* GRID */
+
+.attend-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+grid-auto-rows:260px;
+gap:25px;
+}
+
+/* CARD */
+
+.attend-card{
+position:relative;
+overflow:hidden;
+border-radius:12px;
+cursor:pointer;
+}
+
+.attend-card img{
+width:100%;
+height:100%;
+object-fit:cover;
+transition:0.5s;
+}
+
+/* CARD SIZES */
+
+.attend-card.large{
+grid-row:span 2;
+}
+
+.attend-card.wide{
+grid-column:span 2;
+}
+
+/* OVERLAY */
+
+.attend-overlay{
+position:absolute;
+bottom:0;
+width:100%;
+padding:25px;
+color:white;
+background:linear-gradient(
+transparent,
+rgba(0,0,0,0.85)
+);
+}
+
+.attend-overlay h3{
+color:#FFD700;
+margin-bottom:6px;
+}
+
+/* HOVER EFFECT */
+
+.attend-card:hover img{
+transform:scale(1.1);
+}
+
+.attend-card:hover{
+box-shadow:0 20px 50px rgba(0,0,0,0.25);
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.attend-grid{
+grid-template-columns:1fr;
+grid-auto-rows:260px;
+}
+
+.attend-card.large,
+.attend-card.wide{
+grid-column:span 1;
+grid-row:span 1;
+}
+
+}
+
+/* FEATURES */
+
+.features{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:30px;
+text-align:center;
+}
+
+.feature-box{
+background:#f4f8ff;
+padding:30px;
+border-radius:10px;
+transition:.3s;
+}
+
+.feature-box:hover{
+transform:translateY(-5px);
+box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* LEADERS */
+
+/* INSPIRATIONAL LEADERS */
+
+.leaders-section{
+padding:110px 10%;
+background:#fafbff;
+}
+
+.leaders-header{
+text-align:center;
+max-width:750px;
+margin:auto;
+margin-bottom:70px;
+}
+
+.leaders-header h2{
+font-family:'Playfair Display',serif;
+font-size:38px;
+color:#0b2a5b;
+margin-bottom:15px;
+}
+
+.leaders-header p{
+font-size:17px;
+line-height:1.6;
+color:#444;
+}
+
+
+/* GRID */
+
+.leaders-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:40px;
+}
+
+
+/* CARD */
+
+.leader-card{
+background:rgb(255, 255, 255);
+border-radius:12px;
+overflow:hidden;
+box-shadow:0 10px 35px rgba(0,0,0,0.08);
+transition:0.4s;
+position:relative;
+}
+
+.leader-card:hover{
+transform:translateY(-10px);
+box-shadow:0 20px 60px rgba(0,0,0,0.15);
+}
+
+
+/* IMAGE */
+
+.leader-image{
+height:300px;
+overflow:hidden;
+position:relative;
+}
+
+.leader-image img{
+width:100%;
+height:100%;
+object-fit:cover;
+transition:0.5s;
+}
+
+/* GOLD FRAME EFFECT */
+
+.leader-image::after{
+content:"";
+position:absolute;
+top:15px;
+left:15px;
+right:15px;
+bottom:15px;
+border:2px solid rgba(0, 42, 158, 0.7);
+pointer-events:none;
+}
+
+/* HOVER ZOOM */
+
+.leader-card:hover img{
+transform:scale(1.08);
+}
+
+
+/* INFO */
+
+.leader-info{
+padding:25px;
+text-align:center;
+}
+
+.leader-info h3{
+font-size:22px;
+color:#0b2a5b;
+margin-bottom:5px;
+}
+
+.leader-info span{
+color:#caa300;
+font-weight:600;
+font-size:14px;
+}
+
+.leader-info p{
+margin-top:15px;
+font-size:15px;
+line-height:1.6;
+color:#555;
+}
+
+/* HOW THE AWARDS WORK */
+
+.process-section{
+background:linear-gradient(180deg,#0a1c5a,#07133f);
+padding:110px 7%;
+color:white;
+opacity: 0;
+position: relative; /* add this */
+overflow: hidden;   
+}
+
+.process-section::before{
+content:"";
+position:absolute;
+width:600px;
+height:600px;
+background:radial-gradient(circle, rgba(70,120,255,0.25), transparent 70%);
+top:-200px;
+left:-200px;
+filter:blur(120px);
+}
+
+.process-container{
+max-width:1250px;
+margin:auto;
+}
+
+
+/* HEADER */
+
+.process-header{
+display:flex;
+align-items:center;
+justify-content:space-between;
+margin-bottom:70px;
+}
+
+.tag{
+font-size:12px;
+letter-spacing:2px;
+opacity:.8;
+display:block;
+margin-bottom:10px;
+}
+
+.title-area h2{
+font-size:42px;
+font-weight:600;
+line-height:1.2;
+}
+
+.line{
+height:1px;
+width:50%;
+background:rgba(255,255,255,.25);
+}
+
+
+/* STEPS GRID */
+
+.steps-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:25px;
+margin-bottom:50px;
+}
+
+
+.step-card{
+background:rgba(255,255,255,.08);
+border-radius:20px;
+padding:32px;
+min-height:210px;
+backdrop-filter:blur(12px);
+transition:.35s;
+
+border:1px solid rgba(255,255,255,0.08);
+box-shadow:
+0 10px 30px rgba(0,0,0,0.25),
+inset 0 1px 0 rgba(255,255,255,0.1);
+}
+
+.step-card:hover{
+transform:translateY(-10px);
+background:rgba(255,255,255,.12);
+box-shadow:
+0 15px 40px rgba(0,0,0,0.35),
+inset 0 1px 0 rgba(255,255,255,0.2);
+}
+
+.number{
+opacity:.6;
+font-size:18px;
+display:block;
+margin-bottom:15px;
+}
+
+.step-card h3{
+font-size:18px;
+margin-bottom:10px;
+}
+
+.step-card p{
+font-size:14px;
+opacity:.85;
+line-height:1.6;
+}
+
+
+/* CTA BAR */
+
+.cta-bar{
+background:rgba(255,255,255,.08);
+border-radius:50px;
+padding:18px 25px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+text-decoration: none;
+}
+
+.cta-left{
+display:flex;
+align-items:center;
+gap:15px;
+}
+
+.cta-left p{
+text-decoration: none;
+font-size:15px;
+opacity:.9;
+}
+
+
+/* AVATARS */
+
+.avatars{
+display:flex;
+}
+
+.avatars img{
+width:36px;
+height:36px;
+border-radius:50%;
+border:2px solid white;
+margin-left:-10px;
+}
+
+.avatars img:first-child{
+margin-left:0;
+}
+
+
+/* BUTTON */
+
+.cta-btn{
+background:white;
+color:#0a1c5a;
+border:none;
+padding:12px 28px;
+border-radius:30px;
+font-weight:600;
+cursor:pointer;
+transition:.3s;
+}
+
+.cta-btn:hover{
+transform:scale(1.05);
+}
+
+
+/* SCROLL ANIMATION */
+
+.fade{
+opacity:0;
+transform:translateY(40px);
+transition:all .8s ease;
+}
+
+.fade.show{
+opacity:1;
+transform:translateY(0);
+}
+
+
+/* RESPONSIVE */
+
+@media(max-width:1000px){
+
+.steps-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.line{
+display:none;
+}
+
+}
+
+@media(max-width:600px){
+
+.steps-grid{
+grid-template-columns:1fr;
+}
+
+.cta-bar{
+flex-direction:column;
+gap:15px;
+border-radius:20px;
+}
+
+.process-header{
+flex-direction:column;
+align-items:flex-start;
+gap:20px;
+}
+
+}
+
+/* CONTACT */
+
+#contact {
+    position: relative;
+    background: #0b0f1a;
+    padding: 160px 8%;
+    color: #d1d5db;
+    overflow: hidden;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Royal Glow Layer */
+
+.bg-glow {
+    position: absolute;
+    width: 900px;
+    height: 900px;
+    background: radial-gradient(circle, rgba(30,64,175,0.25) 0%, transparent 70%);
+    top: -350px;
+    left: -350px;
+    opacity: 0.8;
+    z-index: 0;
+}
+
+/* Soft vignette */
+
+.vignette {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, transparent 40%, rgba(0,0,0,0.7) 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.contact-container {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    gap: 100px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* LEFT SIDE */
+
+.contact-left {
+    flex: 1;
+}
+
+.contact-title {
+    font-size: 44px;
+    font-weight: 700;
+    letter-spacing: 6px;
+    margin-bottom: 30px;
+    color: white;
+}
+
+.contact-description {
+    max-width: 420px;
+    color: #9ca3af;
+    line-height: 1.8;
+    margin-bottom: 50px;
+}
+
+.detail {
+    margin-bottom: 35px;
+}
+
+.detail h4 {
+    color: white;
+    font-size: 18px;
+    margin-bottom: 6px;
+}
+
+.detail p {
+    color: #9ca3af;
+    font-size: 15px;
+}
+
+/* RIGHT SIDE */
+
+.contact-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.contact-card {
+    background: #0f172a;
+    padding: 60px;
+    width: 100%;
+    max-width: 520px;
+    box-shadow:
+        0 50px 100px rgba(0,0,0,0.8),
+        0 0 0 1px rgba(255,255,255,0.04);
+}
+
+.contact-card h2 {
+    margin-bottom: 40px;
+    color: white;
+    letter-spacing: 3px;
+}
+
+/* FORM */
+
+.form-group {
+    margin-bottom: 30px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #2a2f3a;
+    padding: 10px 0;
+    color: white;
+    font-size: 14px;
+    outline: none;
+    transition: 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-bottom: 1px solid #3b82f6;
+}
+
+/* BUTTON */
+
+.submit-btn {
+    margin-top: 20px;
+    background: #1f2937;
+    border: none;
+    padding: 14px 30px;
+    color: white;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+    transition: 0.4s ease;
+}
+
+.submit-btn:hover {
+    background: #2563eb;
+    transform: translateY(-4px);
+    box-shadow: 0 25px 60px rgba(0,0,0,0.8);
+}
+
+/* LEFT VERTICAL SOCIAL */
+
+.vertical-social {
+    position: absolute;
+    left: 40px;
+    bottom: 120px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    z-index: 3;
+}
+
+.vertical-social a {
+    color: #6b7280;
+    font-size: 16px;
+    transition: all 0.4s ease;
+}
+
+.vertical-social a:hover {
+    color: #3b82f6;
+    transform: translateY(-4px);
+}
+
+.vertical-social::before {
+    content: "";
+    width: 1px;
+    height: 60px;
+    background: #374151;
+    margin: 0 auto 15px;
+}
+
+.vertical-social::before {
+    content: "";
+    width: 1px;
+    height: 60px;
+    background: #374151;
+    margin: 0 auto 15px;
+}
+
+/* RIGHT SCROLL TEXT */
+
+.scroll-indicator {
+    position: absolute;
+    right: 30px;
+    bottom: 100px;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    font-size: 12px;
+    letter-spacing: 4px;
+    color: #6b7280;
+    z-index: 3;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+    .contact-container {
+        flex-direction: column;
+        gap: 70px;
+    }
+
+    .contact-title {
+        font-size: 42px;
+    }
+
+    .vertical-social,
+    .scroll-indicator {
+        display: none;
+    }
+
+    .contact-card {
+        padding: 40px;
+    }
+}
+
+/* Glow slow floating animation */
+
+.bg-glow {
+    animation: glowFloat 12s ease-in-out infinite alternate;
+}
+
+@keyframes glowFloat {
+    0% {
+        transform: translate(0px, 0px);
+    }
+    100% {
+        transform: translate(40px, 30px);
+    }
+}
+
+/* FOOTER */
+
+footer{
+text-align:center;
+padding:20px;
+background:#081a3a;
+color:#bbb;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.hero-content h1{
+font-size:38px;
+}
+
+.about{
+flex-direction:column;
+}
+
+}
+
+.logo-text{
+    color: #ffffff;
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<header id="header">
+<div class="logo-container">
+<div class="logo-img">
+<img src="1000335541.png">
+</div>
+<div class="logo">Legend <span class="logo-text">Africa</span></div>
+</div>
+
+<nav>
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#why-attend">Why Attend</a>
+<a href="#overview">Overview</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+<div class="fullscreen-menu" id="fullscreenMenu">
+
+    <div class="menu-wrapper">
+
+        <div class="menu-left">
+            <a href="#">Home</a>
+            <a href="#about">About</a>
+            <a href="#why-attend">Why Attend</a>
+            <a href="#contact">Contact</a>
+        </div>
+
+        <div class="menu-right">
+            <p>Legend Africa</p>
+            <span>Lagos — Nigeria</span>
+        </div>
+
+    </div>
+
+</div>
+</header>
+
+
+<!-- HERO -->
+
+<!-- HERO SECTION -->
+<section id="home" class="hero">
+<div>
+<h1>LEGEND AFRICA AWARDS</h1>
+<p>Recognizing visionary leaders, entrepreneurs, and changemakers shaping Africa's future.</p>
+<a href="#about" class="btn btn-primary">Explore Platform</a>
+<a href="#about" class="btn btn-outline">Read Full Profile</a>
+</div>
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about" class="about-section">
+  <div class="container">
+    <div class="about-content">
+      <div class="about-text fade-scroll">
+        <h2>About Legend Africa Excellence Awards</h2>
+        <p>
+          We celebrate extraordinary achievements across Africa, shining a spotlight on
+          pioneers, innovators, and leaders who inspire generations. Our mission is to
+          honor excellence, empower talent, and set benchmarks for greatness.
+        </p>
+        <p>
+          Every year, we gather the brightest minds and visionaries, creating an unforgettable
+          experience that blends prestige, elegance, and unmatched professionalism.
+        </p>
+        <a href="#contact" class="btn btn-primaryy">Join Our Journey</a>
+      </div>
+      <div class="about-image fade-scroll">
+        <img src="Africa-Young-Innovators-4-Health-Award_Second-Edition_Winners.jpg" 
+             alt="Award celebration" />
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- WHY ATTEND -->
+
+<section class="why-attend" id="why-attend">
+
+<h2>Why Attend The Awards</h2>
+
+<div class="attend-grid">
+
+<div class="attend-card large">
+
+<img src="ap_17261475347623-9e6ab8a25edae17cae9e3a98c3c8e1e2f415b6c8.jpg">
+
+<div class="attend-overlay">
+<h3>Elite Networking</h3>
+<p>Meet Africa’s top entrepreneurs, investors and influential leaders.</p>
+</div>
+
+</div>
+
+<div class="attend-card">
+
+<img src="african-businessman-speaking-global-economic-600nw-2634227687.webp">
+
+<div class="attend-overlay">
+<h3>Inspiring Stories</h3>
+<p>Discover success journeys shaping Africa's future.</p>
+</div>
+
+</div>
+
+<div class="attend-card">
+
+<img src="https://images.unsplash.com/photo-1511578314322-379afb476865">
+
+<div class="attend-overlay">
+<h3>Prestigious Recognition</h3>
+<p>Celebrate the continent's most impactful achievements.</p>
+</div>
+
+</div>
+
+<div class="attend-card wide">
+
+<img src="international-seo-hero.webp">
+
+<div class="attend-overlay">
+<h3>Global Exposure</h3>
+<p>Gain international visibility and connect with global partners.</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+
+<!-- GALLERY -->
+
+<section class="process-section fade" id="overview">
+
+<div class="process-container">
+
+<div class="process-header">
+
+<div class="title-area">
+<span class="tag">● 4 SIMPLE STEPS</span>
+<h2>Understanding the Legend Africa <br> Excellence Awards</h2>
+</div>
+
+<div class="line"></div>
+
+</div>
+
+<div class="steps-grid">
+
+<div class="step-card fade">            
+<span class="number">01.</span>
+<h3>Nominations</h3>
+<p>Outstanding individuals and organizations are nominated from across
+Africa and the diaspora.</p>
+</div>
+
+<div class="step-card fade">
+<span class="number">02.</span>
+<h3>Screening Process</h3>
+<p>A dedicated review team evaluates nominees based on impact,
+credibility, and industry contributions.</p>
+</div>
+
+<div class="step-card fade">
+<span class="number">03.</span>
+<h3>Public Recognition</h3>
+<p>Selected nominees are officially announced and celebrated through
+the awards platform.</p>
+</div>
+
+<div class="step-card fade">
+<span class="number">04.</span>
+<h3>Awards Ceremony</h3>
+<p>Winners are honoured at a prestigious ceremony attended by
+leaders, innovators and global guests.</p>
+</div>
+
+</div>
+
+
+<div class="cta-bar fade">
+
+<div class="cta-left">
+
+<div class="avatars">
+
+<img src="16x9 Large.jpg">
+<img src="16x9 Large.jpg">
+<img src="16x9 Large.jpg">
+<img src="16x9 Large.jpg">
+
+</div>
+
+
+
+</div>
+
+
+<a class="cta-btn" href="#contact">
+<span>Join Us</span>
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact" class="contact-section">
+
+    <!-- Background Glow -->
+    <div class="bg-glow"></div>
+    <div class="vignette"></div>
+
+    <!-- Left Vertical Social -->
+    <div class="vertical-social">
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-x-twitter"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+</div>
+
+    <!-- Right Scroll Text -->
+    <div class="scroll-indicator">
+        SCROLL
+    </div>
+
+    <div class="contact-container">
+
+        <!-- LEFT SIDE -->
+        <div class="contact-left">
+          <div class="contact-left reveal"></div>
+            <h1 class="contact-title">CONTACT</h1>
+
+            <p class="contact-description">
+                For partnerships, media inquiries or collaborations,
+                reach out directly or send us a message.
+            </p>
+
+            <div class="contact-details">
+
+                
+
+            </div>
+        </div>
+
+        <!-- RIGHT SIDE -->
+        <div class="contact-right">
+          <div class="contact-card reveal"></div>
+            <div class="contact-card">
+
+                <h2>CONTACT FORM</h2>
+
+                <form>
+
+                    <div class="form-group">
+                        <input type="text" placeholder="Your name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" placeholder="Your phone" required>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="email" placeholder="Your e-mail" required>
+                    </div>
+
+                    <div class="form-group">
+                        <textarea placeholder="Message" rows="4" required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        SEND MESSAGE →
+                    </button>
+
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+<p>© 2026 Legend Africa Excellence Awards</p>
+
+</footer>
+
+
+<script>
+
+/* HEADER SCROLL */
+
+window.addEventListener("scroll",function(){
+
+let header=document.getElementById("header");
+
+if(window.scrollY>80){
+
+header.classList.add("scrolled");
+
+}else{
+
+header.classList.remove("scrolled");
+
+}
+
+});
+
+
+/* COUNTDOWN */
+
+var awardDate = new Date("Dec 20, 2026 18:00:00").getTime();
+
+setInterval(function(){
+
+var now = new Date().getTime();
+
+var distance = awardDate - now;
+
+var days = Math.floor(distance/(1000*60*60*24));
+var hours = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+var minutes = Math.floor((distance%(1000*60*60))/(1000*60));
+var seconds = Math.floor((distance%(1000*60))/1000);
+
+document.getElementById("days").innerHTML=days;
+document.getElementById("hours").innerHTML=hours;
+document.getElementById("minutes").innerHTML=minutes;
+document.getElementById("seconds").innerHTML=seconds;
+
+},1000);
+
+// Fade-in on scroll
+const fadeElements = document.querySelectorAll('.fade-scroll');
+
+function revealOnScroll() {
+  const triggerBottom = window.innerHeight * 0.85;
+
+  fadeElements.forEach(el => {
+    const boxTop = el.getBoundingClientRect().top;
+    if (boxTop < triggerBottom) {
+      el.classList.add('visible');
+    }
+  });
+}
+
+window.addEventListener('scroll', revealOnScroll);
+window.addEventListener('load', revealOnScroll);
+
+const faders = document.querySelectorAll(".fade");
+
+const observer = new IntersectionObserver((entries)=>{
+entries.forEach((entry,i)=>{
+if(entry.isIntersecting){
+
+setTimeout(()=>{
+entry.target.classList.add("show");
+}, i * 150);
+
+}
+});
+},{
+threshold:.2
+});
+
+faders.forEach(el=>{
+observer.observe(el);
+});
+
+// Close when clicking a link
+document.querySelectorAll(".menu-content a").forEach(link => {
+    link.addEventListener("click", () => {
+        hamburger.classList.remove("active");
+        menu.classList.remove("active");
+    });
+});
+
+const hamburger = document.getElementById("hamburger");
+const menu = document.getElementById("fullscreenMenu");
+const links = document.querySelectorAll(".menu-left a");
+
+hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("active");
+    menu.classList.toggle("active");
+
+    links.forEach((link, index) => {
+        link.style.transitionDelay = menu.classList.contains("active")
+            ? `${index * 0.1}s`
+            : "0s";
+    });
+});
+
+links.forEach(link => {
+    link.addEventListener("click", () => {
+        hamburger.classList.remove("active");
+        menu.classList.remove("active");
+    });
+});
+
+// FADE-SCROLL ANIMATION FOR HOME
+const homeFade = document.querySelectorAll('.fade-scroll');
+function revealHome() {
+  const triggerBottom = window.innerHeight * 0.85;
+  homeFade.forEach(el => {
+    const boxTop = el.getBoundingClientRect().top;
+    if(boxTop < triggerBottom){
+      el.classList.add('visible');
+    }
+  });
+}
+window.addEventListener('scroll', revealHome);
+window.addEventListener('load', revealHome);
+
+</script>
+
+</body>
+</html>
