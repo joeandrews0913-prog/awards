@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>About | Legend Africa Excellence Awards</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+
+<style>
+
+/* GLOBAL */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:white;
+color:#333;
+}
+
+header{
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 8%;
+z-index:1000;
+transition:.4s;
+}
+
+header.scrolled{
+background:rgba(0, 0, 0, 0.822);
+}
+
+.logo{
+font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+font-weight: 700;
+font-size:25px;
+color:#FFD700;
+}
+
+.logo-text{
+color: #f7f9ff;
+}
+/* LOGO CONTAINER */
+
+.logo-container{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+/* CIRCLE LOGO */
+
+.logo-img{
+width:45px;
+height:45px;
+border-radius:50%;
+overflow:hidden;
+flex-shrink:0;
+}
+
+/* IMAGE */
+
+.logo-img img{
+width:100%;
+height:100%;
+object-fit:cover;
+display:block;
+}
+
+nav a{
+margin-left:25px;
+text-decoration:none;
+color:white;
+font-weight:500;
+}
+
+nav a:hover{
+color:#FFD700;
+}
+
+/* HERO */
+/* HERO UPGRADE */
+.hamburger {
+    position: relative;
+    width: 28px;
+    height: 20px;
+    cursor: pointer;
+    z-index: 2000; /* Above overlay */
+}
+
+.hamburger span {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 1.5px; /* thinner lines */
+    background: #ffffff;
+    transition: all 0.4s cubic-bezier(.4,0,.2,1);
+}
+
+/* Line positioning */
+.hamburger span:nth-child(1) {
+    top: 0;
+}
+
+.hamburger span:nth-child(2) {
+    top: 9px;
+}
+
+.hamburger span:nth-child(3) {
+    bottom: 0;
+}
+
+/* Morph to elegant X */
+
+.hamburger.active span:nth-child(1) {
+    top: 9px;
+    transform: rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    bottom: 9px;
+    transform: rotate(-45deg);
+}
+
+/* =============================
+   FULLSCREEN MENU
+============================= */
+
+/* =============================
+   SLICK GLASS FULLSCREEN MENU
+============================= */
+
+/* ==============================
+   EDITORIAL SIDE MENU (OPTION C)
+============================== */
+
+.fullscreen-menu {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(
+        140deg,
+        rgba(8,12,25,0.96),
+        rgba(18,35,80,0.92)
+    );
+    backdrop-filter: blur(12px);
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+    z-index: 1500;
+}
+
+.fullscreen-menu.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* Layout */
+
+.menu-wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+/* LEFT SIDE LINKS */
+
+.menu-left {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+.menu-left a {
+    font-size: 42px;
+    font-weight: 300;
+    letter-spacing: 3px;
+    color: #e5e7eb;
+    text-decoration: none;
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: all 0.6s ease;
+}
+
+/* Reveal Animation */
+
+.fullscreen-menu.active .menu-left a {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Subtle hover */
+
+.menu-left a:hover {
+    color: #3b82f6;
+    letter-spacing: 6px;
+}
+
+/* RIGHT SIDE INFO */
+
+.menu-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    text-align: right;
+    opacity: 0;
+    transform: translateX(40px);
+    transition: all 0.8s ease;
+}
+
+.menu-right p {
+    font-size: 18px;
+    color: #9ca3af;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+.menu-right span {
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.fullscreen-menu.active .menu-right {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* MOBILE */
+
+@media (max-width: 900px) {
+    .menu-wrapper {
+        flex-direction: column;
+        justify-content: center;
+        gap: 60px;
+    }
+
+    .menu-right {
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .menu-left a {
+        font-size: 25px;
+    }
+}
+
+/* ================= MOBILE FULL WIDTH ================= */
+
+@media(max-width:900px){
+
+nav{
+position:absolute;
+top:70px;
+left:0;
+width:100%;
+background:rgba(0,31,63,0.98);
+flex-direction:column;
+align-items:center;
+padding:40px 0;
+display:none;
+}
+
+nav.active{
+display:flex;
+}
+
+nav a{
+margin:15px 0;
+font-size:18px;
+}
+
+.nav-buttons{
+display:none;
+}
+
+.hamburger{
+display:block;
+}
+
+}
+
+/* HERO */
+
+.page-hero{
+height:75vh;
+background:linear-gradient(rgba(5,20,50,0.85),rgba(5,20,50,0.9)),
+url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30');
+background-size:cover;
+background-position:center;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+color:white;
+text-align:center;
+padding:0 20px;
+}
+
+.page-hero h1{
+font-family:'Playfair Display',serif;
+font-size:45px;
+margin-bottom:10px;
+}
+
+.page-hero p{
+font-size:16px;
+opacity:0.9;
+}
+
+/* CONTENT */
+
+.section{
+padding:100px 10%;
+max-width:1100px;
+margin:auto;
+}
+
+.section h2{
+font-family:'Playfair Display',serif;
+color:#0b2a5b;
+margin-bottom:15px;
+}
+
+.section p{
+font-family:'Playfair Display', serif;
+line-height:1.9;
+margin-bottom: 22px;
+font-size: 15.5;
+color:#444;
+}
+
+/* SPLIT SECTION */
+
+.split{
+display:flex;
+gap:50px;
+align-items:center;
+flex-wrap:wrap;
+}
+
+.split img{
+width:100%;
+border-radius:10px;
+}
+
+
+/* VISION INTRO */
+
+.vision-intro{
+max-width:700px;
+margin-bottom:40px;
+font-size:16px;
+line-height:1.9;
+}
+
+/* GRID */
+
+.vision-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+gap:20px;
+}
+
+/* BOX */
+
+.vision-box{
+background:#f7f9ff;
+padding:25px;
+border-radius:12px;
+transition:0.3s;
+}
+
+.vision-box:hover{
+transform:translateY(-6px);
+box-shadow:0 12px 30px rgba(0,0,0,0.08);
+}
+
+.vision-box h3{
+color:#0b2a5b;
+margin-bottom:10px;
+font-size:18px;
+}
+
+
+/* TIMELINE */
+
+.timeline{
+margin-top:50px;
+border-left:3px solid #FFD700;
+padding-left:40px;
+position:relative;
+}
+
+.timeline-item{
+margin-bottom:40px;
+position:relative;
+padding-left:10px;
+}
+
+.timeline-item::before{
+content:'';
+position:absolute;
+left:-34px;
+top:5px;
+width:12px;
+height:12px;
+background:#FFD700;
+border-radius:50%;
+}
+
+.timeline-item h4{
+color:#0b2a5b;
+margin-bottom:5px;
+}
+
+.timeline-item span{
+color:#caa300;
+font-size:14px;
+}
+
+/* FOUNDER */
+
+.founder{
+background:#f7f9ff;
+padding:60px;
+border-radius:12px;
+text-align:center;
+}
+
+.founder img{
+width:70px;
+height:70px;
+border-radius:50%;
+object-fit:cover;
+margin-bottom:15px;
+}
+
+/* CTA */
+
+.cta{
+text-align:center;
+margin-top:60px;
+}
+
+.cta a{
+background:#FFD700;
+color:black;
+padding:14px 30px;
+border-radius:6px;
+text-decoration:none;
+font-weight:600;
+display:inline-block;
+transition:0.3s;
+}
+
+.cta a:hover{
+background:#e6c200;
+transform:translateY(-2px);
+}
+
+/* ANIMATION */
+
+.fade{
+opacity:0;
+transform:translateY(40px);
+transition:0.8s;
+}
+
+.fade.show{
+opacity:1;
+transform:translateY(0);
+}
+
+footer{
+text-align:center;
+padding:20px;
+background:#081a3a;
+color:#bbb;
+}
+
+.back-home{
+    display: flex;
+    padding: 10px 10%;
+    padding-bottom: 60px;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 50px;
+}
+
+.back-home a {
+    text-decoration: none;
+    background-color: #05185e;
+    border-top: 30px;
+    color: #e5e7eb;
+    padding: 16px;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.back-home a:hover{
+    background-color: #12356d;
+  
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+.split{
+flex-direction:column;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER (reuse your main header here) -->
+
+<header id="header">
+<div class="logo-container">
+<div class="logo-img">
+<img src="1000335541.png">
+</div>
+<div class="logo">Legend <span class="logo-text">Africa</span></div>
+</div>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="index.html #about">About</a>
+<a href="index.html#why-attend">Why Attend</a>
+<a href="index.html#overview">Overview</a>
+<a href="index.html#contact">Contact</a>
+</nav>
+
+<div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+<div class="fullscreen-menu" id="fullscreenMenu">
+
+    <div class="menu-wrapper">
+
+        <div class="menu-left">
+            <a href="index.html">Home</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#why-attend">Why Attend</a>
+            <a href="index.html#overview">Overview</a>
+            <a href="index.html#contact">Contact</a>
+        </div>
+
+        <div class="menu-right">
+            <p>Legend Africa</p>
+            <span>Lagos — Nigeria</span>
+        </div>
+
+    </div>
+
+</div>
+</header>
+
+<!-- HERO -->
+
+<section class="page-hero">
+<h1>Celebrating Excellence Across Africa</h1>
+<p>Recognizing leaders, innovators, and changemakers shaping the future.</p>
+</section>
+
+
+<!-- FULL ABOUT CONTENT -->
+
+<section class="section fade">
+
+<h2>About Legend Africa Excellence Awards</h2>
+
+<p>
+The Legend Africa Excellence Awards stands as a distinguished platform created to celebrate, recognize, and honour exceptional African men and women whose dedication, vision, and relentless pursuit of excellence have contributed immensely to the growth and transformation of their societies. In an era where leadership, innovation, and resilience are vital for sustainable development, the awards serve as a beacon of inspiration by highlighting individuals whose achievements embody the true spirit of African excellence.
+</p>
+
+<p>
+One of the core mandates and guiding visions of the Legend Africa Excellence Awards is to reward outstanding Africans across the globe with deserving honours in recognition of their hard work, resilience, and perseverance in their respective fields of endeavour. The initiative is driven by the belief that excellence deserves recognition, and that acknowledging the efforts of exceptional individuals encourages the continuation of impactful contributions to society.
+</p>
+
+<p>
+Across the African continent and within the diaspora, countless men and women are working tirelessly to build stronger communities, develop thriving businesses, advance political systems, and promote socio-economic progress. The Legend Africa Excellence Awards seeks to bring these remarkable stories to the forefront by creating a prestigious platform where their efforts are celebrated and their legacies preserved.
+</p>
+
+<p>
+The awards recognize deserving individuals from all walks of life who have demonstrated unwavering dedication, integrity, creativity, and commitment to nation-building and global development. Each year, distinguished personalities will be honoured in various categories designed to reflect the diverse contributions of Africans to society. These categories span across multiple sectors including politics, entrepreneurship, business leadership, public service, youth development, innovation, media, education, and social impact.
+</p>
+
+<p>
+Through this annual event, the Legend Africa Excellence Awards aims not only to celebrate individual achievements but also to inspire a new generation of Africans who aspire to lead with purpose, innovate with courage, and contribute meaningfully to the advancement of their communities. By spotlighting exemplary leaders and achievers, the awards reinforce the message that excellence, dedication, and service to humanity are values worthy of recognition and emulation.
+</p>
+
+<p>
+The initiative is proudly spearheaded by Legend Max Magazine, a reputable publication produced by Stonepark Media, a dynamic media organization committed to promoting positive narratives across Africa. As a publication dedicated to profiling and showcasing impactful personalities, Legend Max Magazine has consistently highlighted the achievements of public office holders, young entrepreneurs, business leaders, innovators, and distinguished private individuals whose work continues to shape the socio-economic and political landscape of their respective countries.
+</p>
+
+<p>
+Stonepark Media, through its various media platforms, has remained committed to telling authentic African success stories and celebrating the individuals behind those achievements. The Legend Africa Excellence Awards therefore represents a natural extension of this mission—providing a grand stage where Africa’s brightest minds and most impactful leaders can be recognized for their invaluable contributions to society.
+</p>
+
+<p>
+The awards also serve as a powerful platform for networking, collaboration, and knowledge sharing among leaders, innovators, policymakers, and change-makers from across the continent and beyond. By bringing together influential personalities from different sectors, the event fosters meaningful dialogue on development, leadership, innovation, and the future of Africa.
+</p>
+
+<p>
+Beyond recognition, the Legend Africa Excellence Awards embodies a broader vision of encouraging excellence, integrity, and responsible leadership across Africa. It acknowledges individuals whose actions have gone beyond personal success to create opportunities, empower communities, and inspire hope for a better future.
+</p>
+
+<p>
+From trailblazing entrepreneurs who are transforming industries, to visionary political leaders committed to good governance, to young innovators redefining possibilities through technology and creativity, the awards celebrate the diverse spectrum of African achievement. Each honouree represents a story of resilience, determination, and purpose—qualities that define the spirit of Africa.
+</p>
+
+<p>
+The Legend Africa Excellence Awards also places special emphasis on youth empowerment by recognizing emerging leaders and young entrepreneurs whose innovative ideas and ventures are shaping the future of the continent. By highlighting these rising stars, the platform encourages more young Africans to pursue excellence and actively contribute to national and continental development.
+</p>
+
+<p>
+As Africa continues to play an increasingly influential role in global affairs, it becomes even more important to celebrate the individuals who are driving this transformation. The Legend Africa Excellence Awards therefore stands as a tribute to those who have demonstrated extraordinary commitment to progress, leadership, and societal advancement.
+</p>
+
+<p>
+Ultimately, the Legend Africa Excellence Awards is more than just an event—it is a movement dedicated to celebrating African excellence, promoting positive narratives, and encouraging a culture of recognition and appreciation for individuals whose work continues to shape a brighter future for Africa and the world.
+</p>
+
+<p>
+Through this initiative, Legend Max Magazine and Stonepark Media reaffirm their commitment to promoting excellence, inspiring leadership, and telling the powerful stories of Africans who are making remarkable impact across the globe.
+</p>
+
+<p>
+As the awards continue to grow in prestige and influence, the Legend Africa Excellence Awards remains steadfast in its mission to honour excellence, celebrate achievement, and inspire generations of Africans to dream bigger, strive harder, and lead with purpose.
+</p>
+
+</section>
+
+
+<!-- STORY SECTION -->
+
+<section class="section fade">
+
+<h2>Our Vision</h2>
+
+<p class="vision-intro">
+To build Africa’s most respected platform for recognizing excellence, inspiring leadership, and shaping a future driven by innovation, integrity, and impact.
+</p>
+
+<div class="vision-grid">
+
+<div class="vision-box">
+<h3>🌍 Continental Impact</h3>
+<p>
+Creating a unified platform that celebrates excellence across all African nations and the diaspora.
+</p>
+</div>
+
+<div class="vision-box">
+<h3>🚀 Future Leaders</h3>
+<p>
+Inspiring and empowering the next generation of African leaders to pursue greatness with purpose.
+</p>
+</div>
+
+<div class="vision-box">
+<h3>🏆 Global Recognition</h3>
+<p>
+Positioning African achievers on the global stage and amplifying their influence worldwide.
+</p>
+</div>
+
+<div class="vision-box">
+<h3>🤝 Lasting Legacy</h3>
+<p>
+Building a legacy of recognition that continues to inspire generations to come.
+</p>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FOUNDER -->
+
+<section class="section fade">
+
+<div class="founder">
+
+<img src="1000335541.png" alt="Stonepark Media Logo">
+
+<h3>Powered by Stonepark Media</h3>
+
+<p>
+A forward-thinking media brand dedicated to amplifying African excellence,
+telling impactful stories, and shaping narratives that inspire global recognition.
+</p>
+
+</div>
+
+</section>
+
+<div class="back-home">
+    <a href="index.html">Back to home</a>
+</div>
+
+<!-- FOOTER -->
+
+<footer>
+<p>© 2026 Legend Africa Excellence Awards</p>
+</footer>
+
+
+<script>
+window.addEventListener("scroll",function(){
+
+let header=document.getElementById("header");
+
+if(window.scrollY>80){
+
+header.classList.add("scrolled");
+
+}else{
+
+header.classList.remove("scrolled");
+
+}
+
+});
+
+// Close when clicking a link
+document.querySelectorAll(".menu-content a").forEach(link => {
+    link.addEventListener("click", () => {
+        hamburger.classList.remove("active");
+        menu.classList.remove("active");
+    });
+});
+
+const hamburger = document.getElementById("hamburger");
+const menu = document.getElementById("fullscreenMenu");
+const links = document.querySelectorAll(".menu-left a");
+
+hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("active");
+    menu.classList.toggle("active");
+
+    links.forEach((link, index) => {
+        link.style.transitionDelay = menu.classList.contains("active")
+            ? `${index * 0.1}s`
+            : "0s";
+    });
+});
+
+links.forEach(link => {
+    link.addEventListener("click", () => {
+        hamburger.classList.remove("active");
+        menu.classList.remove("active");
+    });
+});
+
+/* SCROLL ANIMATION */
+
+const fades = document.querySelectorAll('.fade');
+
+window.addEventListener('scroll', () => {
+fades.forEach(el => {
+const top = el.getBoundingClientRect().top;
+if(top < window.innerHeight - 100){
+el.classList.add('show');
+}
+});
+});
+
+// Fade-in on scroll
+const fadeElements = document.querySelectorAll('.fade-scroll');
+
+function revealOnScroll() {
+  const triggerBottom = window.innerHeight * 0.85;
+
+  fadeElements.forEach(el => {
+    const boxTop = el.getBoundingClientRect().top;
+    if (boxTop < triggerBottom) {
+      el.classList.add('visible');
+    }
+  });
+}
+
+window.addEventListener('scroll', revealOnScroll);
+window.addEventListener('load', revealOnScroll);
+
+const faders = document.querySelectorAll(".fade");
+
+const observer = new IntersectionObserver((entries)=>{
+entries.forEach((entry,i)=>{
+if(entry.isIntersecting){
+
+setTimeout(()=>{
+entry.target.classList.add("show");
+}, i * 150);
+
+}
+});
+},{
+threshold:.2
+});
+
+faders.forEach(el=>{
+observer.observe(el);
+});
+</script>
+
+</body>
+</html>
